@@ -23,21 +23,21 @@ class App extends Component {
   async setupDatabase() {
     this.dataRef = await base.syncState(`data`, {
         context: this,
-        state: 'data'
+        state: 'data',
+        defaultValue: {count: 0}
     })
 
   }
 
   componentDidMount() {
+    //Setup the database
+    this.setupDatabase()
+
     //Reinstate Local Storage
     const localStorageRef = localStorage.getItem('data')
     if (localStorageRef) {
         this.setState({ data: JSON.parse(localStorageRef)})
     }
-
-    //Setup the database
-    this.setupDatabase()
-
   }
 
   componentDidUpdate() {
