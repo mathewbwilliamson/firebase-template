@@ -25,6 +25,8 @@
 
 ## PWA
 - Figure this out and add it to base app
+- Edit manifest.json
+- Uncomment out serviceWorker.register() in index.js
 
 
 ## Spinner Information
